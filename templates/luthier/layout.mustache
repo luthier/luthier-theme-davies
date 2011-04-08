@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<base href="{{base_url}}" />
+		<title>{{title}}</title>
+
+		<link href="{{media_url}}/davies/css/960.css" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{{media_url}}/davies/css/template.css" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{{media_url}}/davies/css/colour.css" rel="stylesheet" type="text/css" media="screen" />
+{{#stylesheets}}
+		<link href="{{url}}" rel="stylesheet" type="text/css" media="{{media}}" />
+{{/stylesheets}}
+{{#scripts}}
+		<script href="{{url}}"></script>
+{{/scripts}}
+
+	</head>
+	<body>
+		<h1 id="head">{{title}}</h1>
+
+		<ul id="navigation">
+		{{#main_navigation}}
+			{{#active}}<li><span class="active">{{text}}</span></li>{{/active}}
+			{{^active}}<li><a href="{{url}}">{{text}}</a></li>{{/active}}
+		{{/main_navigation}}
+		</ul>
+
+		<div id="content" class="container_16 clearfix">
+			<div class="grid_16">
+				{{#user_messages}}
+					{{#is_error}}<p class="error">{{message}}</p>{{/is_error}}
+					{{^is_error}}<p class="success">{{message}}</p>{{/is_error}}
+				{{/user_messages}}
+			</div>
+
+{{>layout}}
+		</div>
+
+		<div id="foot">
+			<i>Designed by </i><a href="http://mathew-davies.co.uk/">Mathew Davies</a>
+		</div>
+
+	</body>
+</html>
